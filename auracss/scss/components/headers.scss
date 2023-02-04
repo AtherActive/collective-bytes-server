@@ -1,0 +1,19 @@
+@import '../util/vars.scss';
+
+@function headerSize($id) {
+    @return map-get($header-sizes,
+    $id);
+}
+
+h1,h2,h3,h4,h5,h6 {
+    display: block;
+    margin: .4rem 0;
+    width: fit-content;
+}
+
+@each $hsize,
+$fontsize in $header-sizes {
+    h#{$hsize} {
+        font-size: $fontsize;
+    }
+}

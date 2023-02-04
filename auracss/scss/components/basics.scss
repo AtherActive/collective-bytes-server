@@ -1,0 +1,61 @@
+@import '../util/vars.scss';
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: $font-size;
+    font-family: $font;
+    background-color: $body-color;
+    overflow-x: none;
+    color: $body-text-color;
+}   
+
+blockquote {
+    @import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+    background-color: map-get($map: $colors, $key: 'background');
+    padding: .5rem 2rem;
+    margin: 1rem 0;
+    border-left: .5rem solid map-get($map: $colors, $key: 'theme');
+    border-radius: $border-radius;
+    box-shadow: $basic-shadow;
+    transition: $transition;
+
+    &::before {
+        content: '"\A';
+        font-family: 'Secular One', sans-serif;
+        font-size: 2rem;
+        display: block;
+        color: map-get($map: $text-colors, $key: 'gray');
+        height: 2rem;
+    }
+    &::after {
+        content: '\A"'; 
+        font-family: 'Secular One', sans-serif;
+        font-size: 2rem;
+        display: block;
+        text-align: right;
+        color: map-get($map: $text-colors, $key: 'gray');
+        height: 1.5rem;
+    }
+
+    &:hover {
+        box-shadow:$basic-shadow_hover;
+    }
+}
+
+p {
+    line-height: 1.6rem;
+    margin: .4rem 0rem;
+}
+
+hr {
+    border: none;
+    border-top: .2rem solid;
+    width: 100%;
+    margin: 0;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+}

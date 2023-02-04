@@ -1,0 +1,36 @@
+{
+  "name": "mvc-template",
+  "version": "1.0.0",
+  "description": "A template used for projects requiring a MVC setup",
+  "main": "./src/app.js",
+  "type": "module",
+  "scripts": {
+    "auracss": "sass -w --no-source-map ./auracss/scss/auracss.scss:./public/css/auracss.css --style=compressed",
+    "createRouter": "node ./tools/create_router.js",
+    "createController": "node ./tools/create_controller.js",
+    "createModel": "node ./tools/create_model.js",
+    "start": "node ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtherActive-net/mvc-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AtherActive-net/mvc-template/issues"
+  },
+  "homepage": "https://github.com/AtherActive-net/mvc-template#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "nunjucks": "^3.2.3",
+    "sequelize": "^6.21.4"
+  },
+  "devDependencies": {
+    "sass": "^1.55.0"
+  }
+}

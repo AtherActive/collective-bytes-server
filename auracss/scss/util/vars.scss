@@ -1,0 +1,89 @@
+@import './functions.scss';
+
+// General
+$font: sans-serif;
+$font-size: 18px;
+$border-radius: .2rem;
+$transition: all .2s ease;
+
+$header-sizes: ( 
+    "1": 2rem,
+    "2": 1.8rem,
+    "3": 1.6rem,
+    "4": 1.5rem,
+    "5": 1.4rem,
+    "6": 1.3rem
+);
+
+// Icons
+$icons-base-class: 'bx';
+
+// Shadows
+$basic-shadow: .1rem .1rem .2rem rgba(0, 0, 0, 0.6);
+$basic-shadow_hover: .1rem .3rem .5rem rgb(129, 129, 129);
+
+/* COLORS */
+$colors: (
+    'theme': #623CEA,
+    'theme-brightened' : #7c5af7,
+    'accent' : #623CEA,
+    'background': #171A21,
+    'background-bright' : #1f232c,
+    'danger' : #b43434,
+    'success' : #009607,
+    'warning': #b18200,
+);
+$text-colors: (
+    'normal': rgb(216, 216, 216),
+    'white': rgb(255, 255, 255),
+    'gray': rgb(70, 70, 70),
+    'accent' : #623CEA,
+    'danger' : #b43434,
+    'success' : #4bbd4f,
+);
+
+
+/* COMPONENTS */
+
+// Body
+$body-color: map-get($map: $colors, $key: 'background');
+$body-text-color: map-get($map: $text-colors, $key: 'normal');
+
+// Grid
+$sizes: (
+    "xs" : 320px,
+    's': 576px,
+    'm' : 768px,
+    "l" : 992px,
+    'xl' : 1200px,
+    'xxl' : 1400px
+);
+$division-count: 12;
+
+// Navigation
+$nav-height-desktop: 4rem;
+$nav-item-height: 4rem;
+$navbar-color: map-get($map: $colors, $key: 'theme');
+$navbar-text-color: map-get($map: $text-colors, $key: 'white');
+
+// Footer
+$footer-color: map-get($map: $colors, $key: 'theme');
+
+// Forms
+$fields_bg_color: GetColor('background-bright');
+$fields_text_color: GetTextColor('white');
+
+// Banner
+$banner-height: 2rem;
+
+// Masthead & Caroussel
+// Any value is for both!
+$mast-height: 20rem;
+
+// Article
+$article-margin: 2rem;
+
+// Cards
+$card-color: GetColor('background-bright');
+$card-border-radius: .4rem;
+$card-content-padding: 0.6rem;

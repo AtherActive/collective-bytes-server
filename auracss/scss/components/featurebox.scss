@@ -1,0 +1,49 @@
+@import '../util/vars.scss';
+
+.featurebox {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 1rem;
+
+    .feature {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        margin: 1rem;
+        border-radius: $border-radius;
+        width: 20%;
+
+        @each $size, $screenwidth in $sizes {
+            @media screen and (max-width: $screenwidth) {
+                @if($size != 'xxl') {
+                    width: 100%;
+                }
+            }
+        }
+
+        img {
+            width: 14rem;
+        }
+        i.#{$icons-base-class} {
+            width: 14rem;
+            font-size: 14rem;
+        }
+
+        hr {
+            border: none;
+            border-top: .15rem solid map-get($map: $text-colors, $key: 'gray');
+            border-radius: $border-radius;
+            width: 95%
+        }
+
+        h1,h2,h3,h4,h5,h6 {text-align: center}
+        p {
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    }
+}

@@ -1,0 +1,66 @@
+@import '../util/vars.scss';
+
+.masthead,
+.carousel {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: $mast-height; 
+
+    img,
+    .carousel-item>img {
+        width: 100vw;
+        height: $mast-height;
+        object-fit: cover;
+    }
+    .carousel-item {
+        position: absolute;
+        height: max-content;
+    }
+
+    .masthead-content,
+    .carousel-item>.carousel-content {
+        position: absolute;
+        left: 50%;
+        right: 50%;
+        top: 50%;
+        width: 30rem;
+        height: fit-content;
+        margin-top: 0;
+        margin-left: -15rem;
+        text-align: center;
+    } 
+}
+
+.carousel-item {
+    display: none;
+    &.active {
+        display: flex;
+    }
+    &.slide-in {
+        animation: slide forwards 1s;
+    }
+    &.slide-out {
+        animation: slide-out forwards 1s;
+    }
+}
+
+@keyframes slide {
+    0% {
+        left: -100vw;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 100vw;
+    }
+}

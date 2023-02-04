@@ -1,0 +1,18 @@
+@import '../util/vars.scss';
+
+.banner {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    height: $banner-height;
+    font-size: 1.2rem;
+    text-align: center;
+    z-index: 1000;
+
+    >* {
+        margin: 0;
+    }
+}

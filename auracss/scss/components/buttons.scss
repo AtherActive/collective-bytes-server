@@ -1,0 +1,59 @@
+@import '../util/vars.scss';
+
+a {
+    color: map-get($map: $colors, $key: 'theme');
+    text-decoration: none;
+    position: relative;
+    width: max-content;
+    line-height: 1.6rem;
+    font-weight: 600;
+    
+    &:before {
+        content: '';
+        position: absolute;
+        border-bottom: .15rem solid;
+        width: 0%;
+        bottom: 0px;
+        transition: $transition;
+    }
+
+    &:hover {
+        &:before {
+            transition: $transition;
+            width: 100%;
+        }
+    }
+
+    &.no-underline {
+        &:before {
+            border-bottom: none;
+        }
+    }
+
+    &.hv-underline {
+        @each $color, $element in $colors {
+            &-color-#{$color} {
+                &:before {
+                    border-bottom-color: $element;
+                }
+            }
+        }
+    }
+}
+
+button {
+    border: .2rem solid transparent;
+    border-radius: $border-radius; 
+    text-align: center;
+    padding: 1rem 2rem;
+    margin: .4rem;
+    font-weight: 600;
+    color: map-get($map: $colors, $key: 'theme');
+
+    &:hover {
+        border: .2rem solid map-get($map: $colors, $key: 'theme');
+        border-radius: $border-radius*2;
+        transition: $transition;
+    }
+
+}

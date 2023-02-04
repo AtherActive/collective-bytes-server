@@ -1,0 +1,68 @@
+@import './util/vars.scss';
+
+// input, select {
+//     margin-top: .2rem;
+//     margin-bottom: .2rem;
+// }
+
+[class^='col-']>.card {
+    margin: 0.5rem;
+}
+
+.nav-top, .shadow {
+    box-shadow: $basic-shadow;
+}
+
+section {
+    margin: 2rem 0 2rem 0;
+}
+
+select[multiple] {
+    min-height: 15rem;
+
+    >option {
+        height: 1.1rem;
+    }
+}
+
+.nav-top {
+    @media screen and (max-width: map-get($sizes,$key:"l")) {
+        flex-direction: column;
+    }
+}
+.nav-top>ul>li {
+    @media screen and (min-width: map-get($sizes,$key:"l")) {
+        >ul {
+            padding: 1rem 0 1rem 0;
+            width: 14rem;
+            left: -2rem;
+            border-radius: 0 0 $border-radius $border-radius;
+            box-shadow: $basic-shadow;
+            background-color: GetColor('background-bright');
+            
+            >li{
+                height: 2rem;
+                padding-left: 1rem;
+                min-width: 10rem;
+                width: 100%;
+                a {
+                    font-size: 1rem;
+                    justify-content: flex-start;
+                }      
+            }
+        }
+    
+        &:hover>ul {
+            gap: .8rem;
+        }
+    }
+
+}
+
+.classtag {
+    border-radius: $border-radius;
+    background-color: GetColor('background-bright');
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.2rem 0.6rem 0.2rem 0.6rem;
+}

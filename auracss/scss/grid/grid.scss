@@ -1,0 +1,81 @@
+@import '../util/vars.scss';
+
+.col,
+[class^='col-'],
+[class^=' col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.container,
+[class^='container-'],
+[class^=' container-'] {
+    display: block;
+    width: 100%;
+    padding: none;
+    margin: auto;
+}
+
+@for $i from 1 through $division-count {
+
+    $width: calc(100%/#{($division-count/$i)});
+
+    %col-#{$i},
+    .col-#{$i} {
+        width: $width;
+    }
+
+    %container-#{$i},
+    .container-#{$i} {
+        width: $width;
+    }
+
+    @each $size, $screenwidth in $sizes {
+        %col-#{$size}-#{$i},
+        .col-#{$size}-#{$i} {
+            @media screen and (max-width: $screenwidth) {
+                width: $width;
+            }
+        }
+    }
+
+}
+
+.flex {
+    display: flex;
+    
+    &-fd-ror {flex-direction: row-reverse;}
+    &-fd-col {flex-direction: column;}
+    &-fd-colr {flex-direction: column-reverse;}
+
+    // Additional JC
+    &-jc-start { justify-content: flex-start;}
+    &-jc-end { justify-content: flex-end;}
+    &-jc-center { justify-content: center;}
+    &-jc-between { justify-content: space-between;}
+    &-jc-around { justify-content: space-around;}
+    &-jc-evenly { justify-content: space-evenly;}
+    &-js-initial { justify-content: inherit;}
+
+    &-ac-start { align-content: flex-start;}
+    &-ac-end { align-content: flex-end;}
+    &-ac-center { align-content: center;}
+    &-ac-between { align-content: space-between;}
+    &-ac-around { align-content: space-around;}
+    &-ac-evenly { align-content: space-evenly;}
+    &-ac-initial { align-content: inherit;}
+    &-ac-stretch {align-content: stretch;}
+
+    &-ai-start { align-items: flex-start;}
+    &-ai-end { align-items: flex-end;}
+    &-ai-center { align-items: center;}
+    &-ai-initial { align-items: inherit;}
+    &-ai-stretch {align-items: stretch;}
+    &-ai-base { align-items: baseline;}
+}

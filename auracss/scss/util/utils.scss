@@ -1,0 +1,196 @@
+@import './vars.scss';
+
+.color {
+    @each $color, $element in $colors {
+        &-#{$color} {
+            color: $element;
+        }
+    }
+    @each $color, $element in $text-colors {
+        &-txt-#{$color} {
+            color: $element;
+        }
+    }
+}
+
+.bg {
+    @each $color, $element in $colors {
+        &-#{$color} {
+            background-color: $element;
+        }
+    }
+}
+
+
+.hover {
+    // TODO: Add options depending on what you want on hover
+    &-underline {
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    &-brighten {
+        &:hover {
+            backdrop-filter: brightness(1.4);
+        }
+    }
+}
+
+.transition {
+    @for $i from 1 to 10 {
+        
+        &-#{$i} {
+            transition: #{($i/5)}s all ease;
+        }
+    }
+}
+
+.pd {
+    @for $i from 1 to 10 {
+        &-#{$i*2} {
+            padding: #{($i/5)}rem;
+        }
+        &-l-#{$i*2} {
+            padding-left: #{($i/5)}rem;
+        }
+        &-r-#{$i*2} {
+            padding-right: #{($i/5)}rem;
+        }
+        &-t-#{$i*2} {
+            padding-top: #{($i/5)}rem;
+        }
+        &-b-#{$i*2} {
+            padding-bottom: #{($i/5)}rem;
+        }
+    }
+}
+
+.mg {
+    @for $i from 1 to 10 {
+        &-#{$i*2} {
+            margin: #{($i/5)}rem;
+        }
+        &-l-#{$i*2} {
+            margin-left: #{($i/5)}rem;
+        }
+        &-r-#{$i*2} {
+            margin-right: #{($i/5)}rem;
+        }
+        &-t-#{$i*2} {
+            margin-top: #{($i/5)}rem;
+        }
+        &-b-#{$i*2} {
+            margin-bottom: #{($i/5)}rem;
+        }
+    }
+}
+
+.txt {
+    &-align {
+        &-center {text-align: center;}
+        &-left {text-align:left;}
+        &-right {text-align: right;}
+    }
+
+   &-fs {
+    @for $i from 1 to 10 {
+        @if $i < 5 {
+            &-0#{$i*2} {
+                font-size: $i*.2rem;
+            }
+        }
+        &-#{$i*2} {
+            font-size: $i*.2rem;
+        }
+    }
+   }
+}
+
+.backdrop {
+    &-brighten {
+        backdrop-filter: brightness(1.1);
+    }
+    &-darken {
+        backdrop-filter: bvrightness(0.95);
+    }
+}
+
+.width {
+    --val: 0rem;
+    width: var(--val);
+
+    @for $i from 1 to 101 {
+        &-#{$i} {
+            width: $i*1%;
+        }
+        @each $size, $screenwidth in $sizes {
+            &-#{$size}-#{$i} {
+                @media screen and (max-width: $screenwidth) {
+                    width: $i*1%;
+                }
+            }
+        }
+    }
+}
+
+.height {
+    --val: 0rem;
+    width: var(--val);
+
+    @for $i from 1 to 101 {
+        &-#{$i} {
+            width:$i*1%;
+        }
+        @each $size, $screenwidth in $sizes {
+            &-#{$size}-#{$i} {
+                @media screen and (max-width: $screenwidth) {
+                    width: $i*1%;
+                }
+            }
+        }
+    }
+}
+
+.border-radius {
+    @for $i from 0 to 10 {
+        @if $i < 5 {
+            &-0#{$i*2} {
+                border-radius: $i*.2rem;
+            }
+        }
+        &-#{$i*2} {
+            border-radius: $i*.2rem;
+        }
+
+        &-t-#{$i*2} {
+            border-top-left-radius: $i*.2rem;
+            border-top-right-radius: $i*.2rem;
+        }
+        &-b-#{$i*2} {
+            border-bottom-left-radius: $i*.2rem;
+            border-bottom-right-radius: $i*.2rem;
+        }
+    }
+}
+
+.border {
+    @for $i from 0 to 10 {
+        @if $i < 5 {
+            &-t-0#{$i*2} {border-top: $i*.2rem solid}
+            &-b-0#{$i*2} {border-bottom: $i*.2rem solid}
+            &-l-0#{$i*2} {border-left: $i*.2rem solid}
+            &-r-0#{$i*2} {border-right: $i*.2rem solid}
+        } @else {
+            &-t-#{$i*2} {border-top: $i*.2rem solid}
+            &-b-#{$i*2} {border-bottom: $i*.2rem solid}
+            &-l-#{$i*2} {border-left: $i*.2rem solid}
+            &-r-#{$i*2} {border-right: $i*.2rem solid}
+        }
+    }
+
+    @each $color, $element in $colors {
+        &-color-#{$color} {
+            border-color: $element
+        }
+    }
+}

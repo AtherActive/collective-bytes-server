@@ -1,0 +1,25 @@
+// Variables. Cannot be disabled.
+// You can modify these vars in the file.
+@import './util/vars.scss';
+
+// Toggle-able components
+// You can choose to enable these if you need them in a project
+// Components marked with a * can be edited in their file as well.
+@import './components/components.scss'; // *
+@import './grid/grid.scss';
+@import './util/utils.scss'; // (ONLY DISABLE IF COMPONENTS IS ALSO DISABLED)
+
+/* ICONS */
+// Boxicons is our icon provider. It is recommended to leave this enabled
+// If you are using custom icons, you can disable it. You can also use -
+// a local Icon css file insted. See the README for more information.
+@import url('https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css');
+
+// When using a custom Icon provider, please update this to represent
+// the base class that is used by those icons.
+// The default value is for Boxicons.
+$icons-base-class: 'bx';
+
+
+
+@import './overwrite.scss';

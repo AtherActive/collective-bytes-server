@@ -1,0 +1,88 @@
+@import '../util/vars.scss';
+
+label {
+    display: block;
+    margin: .4rem 0rem 0rem 0rem;
+    padding-top: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1rem;
+}
+
+input {
+    display: block;
+    height: 2.2rem;
+    background-color: $fields_bg_color;
+    outline: none;
+    color: $fields_text_color;
+    font-size: 1rem;
+    border-radius: .2rem;
+    padding-left: 1rem;
+    border: none;
+
+    &:focus {
+        border-top: .2rem solid map-get($map: $colors, $key: 'theme');
+        transition: all .2s ease;
+    }
+    &[type='submit'] {
+        margin-top: 1rem;
+        width: 100%;
+        border: none;
+        background-color: map-get($map: $colors, $key: 'theme');
+    }
+    &[type='radio'],
+    &[type='checkbox'] {
+        display: inline;
+        width: initial;
+        height: 1rem;
+    }
+    &:checked {
+        border: .2rem solid map-get($map: $colors, $key: 'theme');
+        color: $fields_bg_color;
+    }
+}
+
+
+select {
+    display: block;
+    background-color: $fields_bg_color;
+    color: $fields_text_color;
+    border-radius: $border-radius;
+    outline: none;
+    width: 100%;
+    height: 2rem;
+    padding-left: 1rem;
+
+    &:focus {
+        border-top: .2rem solid map-get($map: $colors, $key: 'theme');
+        transition: all .2s ease;
+    }
+
+    option {
+        background-color: $fields_bg_color;
+        color: white;
+        height: 2rem;
+    }
+}
+
+textarea {
+    background-color: $fields_bg_color;
+    color: $fields_text_color;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    font-family: $font;
+    padding-left: 1rem;
+    outline: none;
+    border: .2rem solid transparent;
+    border-radius: $border-radius;
+    
+
+    &:focus {
+        outline: none;
+        border: .2rem solid map-get($map: $colors, $key: 'theme');
+        border-radius: $border-radius;
+    }
+}

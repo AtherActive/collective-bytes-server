@@ -1,0 +1,47 @@
+@import '../util/vars.scss';
+@import '../util/utils.scss';
+
+.card {
+    @include Flex(column);
+    @extend .mg-t-4;
+    @extend .mg-b-4;
+    position: relative;
+    filter: box-shadow($basic-shadow);
+    background-color: $card-color;
+    border-radius: $card-border-radius;
+
+    img {
+        width: 100%;
+        border-radius: $card-border-radius $card-border-radius 0 0;
+    }
+
+    .card-content {
+        @include Flex(column);
+        border-radius: $card-border-radius;
+        padding: $card-content-padding;
+        background-color: $card-color;
+    }
+
+    a.card-clickable {
+        position: absolute;
+        top: 0%;
+        bottom: 0%;
+        right: 0%;
+        left: 0%;
+        width: 100%;
+    }
+
+    &.overlay {
+        img {
+            border-radius: $card-border-radius;
+        }
+        .card-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.4);
+        }
+    }
+}
