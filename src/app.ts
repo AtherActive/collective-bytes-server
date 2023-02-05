@@ -6,6 +6,7 @@ import db from './database.js'
 dotenv.config();
 
 const app = express();
+app.use(express.static('public'))
 
 app.get('/', (req, res) => res.send('Hello World!'))
 const routers:express.Router[] = [];

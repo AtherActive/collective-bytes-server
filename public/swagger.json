@@ -1,0 +1,429 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Collective Bytes API",
+    "description": "This page details the available API routes, as well as what they require and send back.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://bytes.ather.nl/api/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "API",
+      "description": "All available endpoints"
+    }
+  ],
+  "paths": {
+    "/balance": {
+      "post": {
+        "tags": [
+          "API"
+        ],
+        "summary": "Get the balance of a provided Identifier",
+        "description": "Get the balance fo an identifier, provided you have access to do so.",
+        "operationId": "getBalance",
+        "requestBody": {
+          "description": "Get the balance of a user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "example": "discordId"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "Regular response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "balance": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/account": {
+      "post": {
+        "tags": [
+          "API"
+        ],
+        "summary": "Get a user account",
+        "description": "Get a user account, provided your token has access to it",
+        "operationId": "account",
+        "requestBody": {
+          "description": "Get an account",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "example": "discordId"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "Regular response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "result": {
+                          "type": "object",
+                          "properties": {
+                            "identifier": {
+                              "type": "string"
+                            },
+                            "wallet": {
+                              "type": "integer"
+                            },
+                            "isApplication": {
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/give": {
+      "post": {
+        "tags": [
+          "API"
+        ],
+        "summary": "Give Bytes to a user",
+        "description": "Give bytes to a user. If your token has a cap, an error is return if you hit it.",
+        "operationId": "giveBalance",
+        "requestBody": {
+          "description": "Give bytes to a user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "example": "discordId"
+                      },
+                      "amount": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "Regular response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "result": {
+                          "type": "object",
+                          "properties": {
+                            "identifier": {
+                              "type": "string"
+                            },
+                            "wallet": {
+                              "type": "integer"
+                            },
+                            "isApplication": {
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/take": {
+      "post": {
+        "tags": [
+          "API"
+        ],
+        "summary": "Take bytes from a user",
+        "description": "Take bytes from a user. If your token has a cap, an error is return if you hit it.",
+        "operationId": "takeBalance",
+        "requestBody": {
+          "description": "Give bytes to a user",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "properties": {
+                      "identifier": {
+                        "type": "string",
+                        "example": "discordId"
+                      },
+                      "amount": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "2XX": {
+            "description": "Regular response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "result": {
+                          "type": "object",
+                          "properties": {
+                            "identifier": {
+                              "type": "string"
+                            },
+                            "wallet": {
+                              "type": "integer"
+                            },
+                            "isApplication": {
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/token": {
+      "get": {
+        "tags": [
+          "API"
+        ],
+        "summary": "Get information about your token",
+        "description": "Get information about your token",
+        "operationId": "getToken",
+        "responses": {
+          "2XX": {
+            "description": "Regular response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "ownerDiscordId": {
+                          "type": "string"
+                        },
+                        "permissions": {
+                          "type": "object",
+                          "properties": {
+                            "read": {
+                              "type": "boolean"
+                            },
+                            "give_capped": {
+                              "type": "object",
+                              "properties": {
+                                "allowed": {
+                                  "type": "boolean",
+                                  "cap": "integer"
+                                }
+                              }
+                            },
+                            "take_capped": {
+                              "type": "object",
+                              "properties": {
+                                "allowed": {
+                                  "type": "boolean",
+                                  "cap": "integer"
+                                }
+                              }
+                            },
+                            "take_uncapped": {
+                              "type": "boolean"
+                            },
+                            "give_uncapped": {
+                              "type": "boolean"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "description": "Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "string"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}
