@@ -3,12 +3,15 @@ import path from 'path'
 import fs from 'fs'
 import dotenv from 'dotenv'
 import db from './database.js'
+import cors from 'cors'
 dotenv.config();
 
 const app = express();
 app.use(express.static('public'))
+app.use(cors({
+    origin: '*'
+}));
 
-app.get('/', (req, res) => res.send('Hello World!'))
 const routers:express.Router[] = [];
 
 db.start({
