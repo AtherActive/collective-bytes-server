@@ -27,7 +27,7 @@ router.use(async (req, res, next) => {
     next()
 })
 
-router.post('/userbalance', async (req, res) => {
+router.post('/balance', async (req, res) => {
     const token = req['token'] as Token;
     
     const {data, options} = req.body
