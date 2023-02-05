@@ -364,8 +364,10 @@
                               "type": "object",
                               "properties": {
                                 "allowed": {
-                                  "type": "boolean",
-                                  "cap": "integer"
+                                  "type": "boolean"
+                                },
+                                "cap": {
+                                  "type": "integer"
                                 }
                               }
                             },
@@ -373,8 +375,10 @@
                               "type": "object",
                               "properties": {
                                 "allowed": {
-                                  "type": "boolean",
-                                  "cap": "integer"
+                                  "type": "boolean"
+                                },
+                                "cap": {
+                                  "type": "integer"
                                 }
                               }
                             },

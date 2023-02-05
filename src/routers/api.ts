@@ -78,3 +78,8 @@ router.post('/give', async (req, res) => {
 
     return res.json({data: (success as Account).buildRequest(), options: options})
 })
+
+router.get('/token', async (req, res) => {
+    const token = req['token'] as Token;
+    return res.json({data: token.buildRequest(), options: {}})
+})

@@ -7,6 +7,13 @@ class Token extends Model {
     declare token: string;
     declare ownerDiscordId: number;
     declare permissions: string|IPermissions
+
+    buildRequest() {
+        return {
+            ownerDiscordId: this.ownerDiscordId,
+            permissions: this.permissions
+        }
+    }
 }
 
 export function load(database: Sequelize) {
