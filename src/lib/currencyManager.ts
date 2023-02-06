@@ -59,13 +59,10 @@ class CurrencyManager {
         if(acc.wallet < amount) return new APIError("Insufficient funds.",405);
         acc.wallet -= amount;
 
-        const tokenAccount = await tokenManager.getTokenUserAccount(token);
-        if(tokenAccount instanceof APIError) return tokenAccount;
-
         const transaction = Transaction.create({
             amount: amount,
-            to: identifier,
-            from: tokenAccount.id,
+            to: acc.identifier,
+            from: token.token
         })
         await acc.save();
 
@@ -92,14 +89,10 @@ class CurrencyManager {
 
         acc.wallet += amount;
 
-        const tokenAccount = await tokenManager.getTokenUserAccount(token);
-        if(tokenAccount instanceof APIError) return tokenAccount;
-        if(!tokenAccount) return new APIError("Token account not found.",500);
-
         const transaction = await Transaction.create({
             amount: amount,
-            to: identifier,
-            from: tokenAccount.id,
+            to: acc.identifier,
+            from: token.token
         })
         await acc.save();
 

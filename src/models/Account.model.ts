@@ -44,6 +44,8 @@ export function load(database: Sequelize) {
 }
 
 export function setRelations() {
+    // Account.hasMany(Transaction, {as:'from', foreignKey: 'fromId'})
+    // Account.hasMany(Transaction, {as:'to', foreignKey: 'toId'})
 }
 
 export default Account;

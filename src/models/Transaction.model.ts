@@ -3,8 +3,8 @@ import Account from "./Account.model.js";
 
 class Transaction extends Model {
     declare id: number;
-    declare discordId: string;
-    declare wallet: number
+    declare fromId: number;
+    declare toId: number
 }
 
 export function load(database: Sequelize) {
@@ -16,6 +16,14 @@ export function load(database: Sequelize) {
         },
         // from association (identifier)
         // to association (identifier)
+        from: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        to: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         amount: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -28,9 +36,8 @@ export function load(database: Sequelize) {
 }
 
 export function setRelations() {
-    console.log('tran')
-    Transaction.belongsTo(Account, {as:"from"})
-    Transaction.belongsTo(Account, {as:"to"})
+    // Transaction.belongsTo(Account, {as:"from"})
+    // Transaction.belongsTo(Account, {as:"to"})
 }
 
 export default Transaction;
