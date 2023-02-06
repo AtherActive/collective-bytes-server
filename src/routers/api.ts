@@ -6,6 +6,7 @@ import tokenManager from '../lib/tokenManager.js';
 
 import Account from '../models/Account.model.js';
 import Token from 'models/Token.model.js';
+import { IPermissions } from 'lib/interfaces.js';
 
 export const mount = '/api/v1/'
 export const router = express.Router();
@@ -27,10 +28,29 @@ router.use(async (req, res, next) => {
     next()
 })
 
+router.use(async (req, res, next) => {
+    if(req.method == "POST" && !req.body.data) {
+        return res.status(400).json({error: "No data provided"})
+    }
+    next();
+})
+
+router.use(async (req, res, next) => {
+    const token = req['token'] as Token;
+    if(req.body.data) {
+        if(req.body.data.identifier !== token.token && (token.permissions as IPermissions).devToken === true) {
+            return res.status(401).json({error: "You are using a developer token, and therefore can only access your own account."})
+        }
+    }
+    next();
+})
+
+
 router.post('/balance', async (req, res) => {
     const token = req['token'] as Token;
     
     const {data, options} = req.body
+    if(!data.identifier) return res.status(400).json({error: "No identifier provided"})
 
     const account = await currencyManager.getUserBalance(data.identifier,token);
     if(account instanceof APIError) return handleApiError(req,res,account);
@@ -42,6 +62,7 @@ router.post('/account', async (req, res) => {
     const token = req['token'] as Token;
     
     const {data, options} = req.body
+    if(!data.identifier) return res.status(400).json({error: "No identifier provided"})
 
     const account = await currencyManager.getAccount(data.identifier,token);
     if(account instanceof APIError) return handleApiError(req,res,account);
@@ -53,6 +74,8 @@ router.post('/take', async (req, res) => {
     const token = req['token'] as Token;
     
     const {data, options} = req.body
+    if(!data.identifier) return res.status(400).json({error: "No identifier provided"})
+    if(!data.amount) return res.status(400).json({error: "No amount provided"})
 
     // check if this is a valid amount
     if(!data.amount) return res.status(400).json({error: "No amount provided"})
@@ -68,6 +91,8 @@ router.post('/give', async (req, res) => {
     const token = req['token'] as Token;
     
     const {data, options} = req.body
+    if(!data.identifier) return res.status(400).json({error: "No identifier provided"})
+    if(!data.amount) return res.status(400).json({error: "No amount provided"})
 
     // check if this is a valid amount
     if(!data.amount) return res.status(400).json({error: "No amount provided"})

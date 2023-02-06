@@ -35,6 +35,9 @@ export interface IPermissions {
     /**@param {boolean} set Allow set access (overwrite esentially) */
     set: boolean
 
+    /**@param {boolean} devToken if this token is a developer token */
+    devToken: boolean
+
     // token management
     view_tokens: boolean
     create_tokens: boolean
