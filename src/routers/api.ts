@@ -108,3 +108,25 @@ router.get('/token', async (req, res) => {
     const token = req['token'] as Token;
     return res.json({data: token.buildRequest(), options: {}})
 })
+
+///
+/// Admin routes
+///
+
+router.post('/admin/createtoken', async (req, res) => {
+    const token = req['token'] as Token;
+    if(!(token.permissions as IPermissions).create_tokens) return res.status(401).json({error: "You do not have permission to create tokens"})
+
+    const {data, options} = req.body
+    if(!data.ownerDiscordId) return res.status(400).json({error: "No ownerDiscordId provided"})
+    if(!data.permissions) return res.status(400).json({error: "No permissions provided"})
+
+    const success = await tokenManager.createToken(data.ownerDiscordId,data.permissions, token);
+    if(success instanceof APIError) return handleApiError(req,res,success);
+
+    return res.json({data: {
+        token: success.token,
+        permissions: success.permissions,
+        ownerDiscordId: success.ownerDiscordId
+    }, options: options})
+})

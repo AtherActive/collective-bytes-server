@@ -33,7 +33,7 @@ class TokenManager {
         const tok = await Token.create({
             ownerDiscordId: ownerId,
             token: uuidv4(),
-            permissions: JSON.stringify(permissions)
+            permissions: permissions
         })
 
         const acc = await Account.create({
