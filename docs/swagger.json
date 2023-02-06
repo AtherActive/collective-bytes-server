@@ -387,6 +387,9 @@
                             },
                             "give_uncapped": {
                               "type": "boolean"
+                            },
+                            "devToken": {
+                              "type": "boolean"
                             }
                           }
                         }
