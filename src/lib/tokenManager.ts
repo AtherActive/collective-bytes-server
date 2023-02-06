@@ -36,6 +36,12 @@ class TokenManager {
             permissions: JSON.stringify(permissions)
         })
 
+        const acc = await Account.create({
+            identifier: tok.token,
+            balance: 0,
+            isApplication: true
+        })
+
         return tok;
     }
 
