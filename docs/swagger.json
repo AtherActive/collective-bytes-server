@@ -55,7 +55,7 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "data": {
+                    "result": {
                       "type": "object",
                       "properties": {
                         "balance": {
@@ -124,7 +124,7 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "data": {
+                    "result": {
                       "type": "object",
                       "properties": {
                         "result": {
@@ -207,7 +207,7 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "data": {
+                    "result": {
                       "type": "object",
                       "properties": {
                         "result": {
@@ -290,7 +290,7 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "data": {
+                    "result": {
                       "type": "object",
                       "properties": {
                         "result": {
@@ -348,7 +348,7 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "data": {
+                    "result": {
                       "type": "object",
                       "properties": {
                         "ownerDiscordId": {

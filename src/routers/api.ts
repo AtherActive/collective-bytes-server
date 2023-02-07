@@ -55,7 +55,7 @@ router.post('/balance', async (req, res) => {
     const account = await currencyManager.getUserBalance(data.identifier,token);
     if(account instanceof APIError) return handleApiError(req,res,account);
 
-    return res.json({data: {balance: account} , options: options})
+    return res.json({result: {balance: account} , options: options})
 })
 
 router.post('/account', async (req, res) => {
@@ -67,7 +67,7 @@ router.post('/account', async (req, res) => {
     const account = await currencyManager.getAccount(data.identifier,token);
     if(account instanceof APIError) return handleApiError(req,res,account);
 
-    return res.json({data: (account as Account).buildRequest(), options: options})
+    return res.json({result: (account as Account).buildRequest(), options: options})
 })
 
 router.post('/take', async (req, res) => {
@@ -84,7 +84,7 @@ router.post('/take', async (req, res) => {
     const success = await currencyManager.takeBalance(data.identifier,data.amount,token);
     if(success instanceof APIError) return handleApiError(req,res,success);
 
-    return res.json({data:(success as Account).buildRequest(), options: options})
+    return res.json({result:(success as Account).buildRequest(), options: options})
 })
 
 router.post('/give', async (req, res) => {
@@ -101,12 +101,12 @@ router.post('/give', async (req, res) => {
     const success = await currencyManager.giveBalance(data.identifier,data.amount,token);
     if(success instanceof APIError) return handleApiError(req,res,success);
 
-    return res.json({data: (success as Account).buildRequest(), options: options})
+    return res.json({result: (success as Account).buildRequest(), options: options})
 })
 
 router.get('/token', async (req, res) => {
     const token = req['token'] as Token;
-    return res.json({data: token.buildRequest(), options: {}})
+    return res.json({result: token.buildRequest(), options: {}})
 })
 
 ///
