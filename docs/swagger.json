@@ -127,19 +127,14 @@
                     "result": {
                       "type": "object",
                       "properties": {
-                        "result": {
-                          "type": "object",
-                          "properties": {
-                            "identifier": {
-                              "type": "string"
-                            },
-                            "wallet": {
-                              "type": "integer"
-                            },
-                            "isApplication": {
-                              "type": "boolean"
-                            }
-                          }
+                        "identifier": {
+                          "type": "string"
+                        },
+                        "wallet": {
+                          "type": "integer"
+                        },
+                        "isApplication": {
+                          "type": "boolean"
                         }
                       }
                     }
@@ -210,19 +205,14 @@
                     "result": {
                       "type": "object",
                       "properties": {
-                        "result": {
-                          "type": "object",
-                          "properties": {
-                            "identifier": {
-                              "type": "string"
-                            },
-                            "wallet": {
-                              "type": "integer"
-                            },
-                            "isApplication": {
-                              "type": "boolean"
-                            }
-                          }
+                        "identifier": {
+                          "type": "string"
+                        },
+                        "wallet": {
+                          "type": "integer"
+                        },
+                        "isApplication": {
+                          "type": "boolean"
                         }
                       }
                     }
@@ -293,19 +283,14 @@
                     "result": {
                       "type": "object",
                       "properties": {
-                        "result": {
-                          "type": "object",
-                          "properties": {
-                            "identifier": {
-                              "type": "string"
-                            },
-                            "wallet": {
-                              "type": "integer"
-                            },
-                            "isApplication": {
-                              "type": "boolean"
-                            }
-                          }
+                        "identifier": {
+                          "type": "string"
+                        },
+                        "wallet": {
+                          "type": "integer"
+                        },
+                        "isApplication": {
+                          "type": "boolean"
                         }
                       }
                     }
