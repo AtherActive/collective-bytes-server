@@ -20,6 +20,5 @@
 **/obj
 **/secrets.dev.yaml
 **/values.dev.yaml
-**/tools
-**/auracss
+LICENSE
 README.md
